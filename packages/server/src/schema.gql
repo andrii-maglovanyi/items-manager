@@ -1,0 +1,33 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type User {
+  id: ID!
+  fullName: String!
+  email: String!
+  password: String!
+}
+
+type Item {
+  id: ID!
+  title: String!
+  user: User!
+}
+
+type Query {
+  items: [Item!]!
+  loggedInUser: User!
+}
+
+type Mutation {
+  create(title: String!): Item!
+  update(title: String!, id: ID!): Item!
+  delete(id: ID!): Void
+  login(password: String!, email: String!): User!
+  logout: Void
+  signup(password: String!, email: String!, lastName: String!, firstName: String!): User!
+}
+
+"""Void custom scalar"""
+scalar Void
